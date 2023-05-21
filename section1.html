@@ -85,6 +85,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#handling-exceptions" id="toc-handling-exceptions" class="nav-link" data-scroll-target="#handling-exceptions">Handling exceptions</a></li>
   <li><a href="#object-oriented-programming" id="toc-object-oriented-programming" class="nav-link" data-scroll-target="#object-oriented-programming">Object oriented programming</a></li>
+  <li><a href="#useful-functions" id="toc-useful-functions" class="nav-link" data-scroll-target="#useful-functions">Useful functions</a></li>
+  <li><a href="#modules" id="toc-modules" class="nav-link" data-scroll-target="#modules">Modules</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="section1.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
@@ -307,6 +309,147 @@ Tip
 <p>Concise way for writing a generator is generator expression that looks like a list comprehension.</p>
 </div>
 </div>
+</section>
+<section id="useful-functions" class="level3">
+<h3 class="anchored" data-anchor-id="useful-functions">Useful functions</h3>
+<ul>
+<li>map(): works as an iterator to return a result after applying a function to every item of an iterable. It is used when you want to apply a single transformation function to all the iterable elements.</li>
+</ul>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>squared_numbers <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> n: n<span class="op">**</span><span class="dv">2</span>, numbers)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list(squared_numbers) = [1, 4, 9, 16]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>filter(): is a function that extracts elements from an iterable for which a function returns True. It takes a function and some iterable (set, list, tuple,..) and returns a filter object.</li>
+</ul>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> check_even(number):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span>  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>even_numbers <span class="op">=</span> <span class="bu">filter</span>(check_even, numbers)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># list(even_numbers) = [2, 4, 6, 8, 10]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>reduce(): does not return a new list based on the function and iterable we’ve passed. Instead, it returns a single value. It can be found in functools module.</li>
+</ul>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> x,y: x<span class="op">*</span>y, a)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># result = 24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For map(), filter() and reduce() functions it is more convenient, if possible, to use lambda functions as argument.</p>
+</div>
+</div>
+<ul>
+<li>zip(): creates an iterator that will aggregate elements from two or more iterables</li>
+</ul>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>list1 <span class="op">=</span> [<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>list2 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>dict_result <span class="op">=</span> {key: val <span class="cf">for</span> key, val <span class="kw">in</span> <span class="bu">zip</span>(list1, list2)}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dict_result = {'a': 1, 'b': 2, 'c': 3}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Instead of bunch of print statements use logging module.</p>
+</div>
+</div>
+<ul>
+<li>partial(): this function allows us to fix a certain number of arguments of a function and generate a new function.</li>
+</ul>
+<div class="cell" data-execution_count="6">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> partial</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(a, b, c, x):</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1000</span><span class="op">*</span>a <span class="op">+</span> <span class="dv">100</span><span class="op">*</span>b <span class="op">+</span> <span class="dv">10</span><span class="op">*</span>c <span class="op">+</span> x</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> partial(f, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># g(1) = 3141</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>argsort(): returns the indices of array elements that would sort an array</li>
+<li><em>del</em> method can be used for erasing variable from memory, or just one variable from a list (instead of <em>remove()</em>)</li>
+<li>arange(): returns list of numbers in a given range</li>
+<li>random.shuffle(): randomise the elements</li>
+<li>random.choice(): returns random element</li>
+<li>list.pop(index): deletes and returns the element from a list with specified index</li>
+<li>list.remove(index): deletes the element from a list with specified index</li>
+<li>isinstance(): checks data type</li>
+<li>any(): returns True if any item in an iterable is true, otherwise False</li>
+<li>all(): returns True if all items in an iterable are true, otherwise False</li>
+<li>np.hstack(): stack arrays in sequence horizontally</li>
+<li>np.vstack(): stack arrays in sequence vertically</li>
+</ul>
+<p>Working with files: * “with open(„some.txt“) as f” takes care of closing the file * .write(), .read(), .close(), .readlines() * For faster loading it is commonly to use numpy package: np.savetxt(‘some.txt’, np.array(), fmt=‘%.2f’, header=‘..’), np.loadtxt(‘some.txt’)</p>
+<p>Working with dataframes: * Combining dataframes in pandas: append() (for horizontal stacking) and concat() (for vertical stacking) * Identifying missing values: isnull() and isna() * Handling missing values: fillna() * Creating missing values for known indexes: pd.DataFrame(index=…, columns=…) * df.query(): for extracting data with specified conditions * When you want to create a new df based on a subset of your initial df, it’s best to use the copy() method * Pandas also has str() method * Renaming columns: better to use .rename() function * Setting index to a column: df.set_index([‘some’]) (it removes column automatically) * DataFrame.plot makes plots of Series or DataFrame. There is various kinds of plot to produce and can be assigned in „kind“ parameter. Options are: ‘line’ (default), ‘bar’, ‘barh’, ‘hist’, ‘box’, ‘kde’/‘density’, ‘area’, ‘pie’, ‘scatter’, ‘hexbin’’</p>
+</section>
+<section id="modules" class="level3">
+<h3 class="anchored" data-anchor-id="modules">Modules</h3>
+<ul>
+<li><p><strong>itertools</strong> module, for different iterations</p></li>
+<li><p><strong>counter</strong> is a dict subclass for counting hashable objects. It is a collection where elements are stored as dictionary keys and their counts are stored as dictionary values. Counts are allowed to be any integer value including zero or negative counts. It is a Pythonic way to count objects.</p>
+<p>from collections import Counter</p>
+<ul>
+<li>update(): for adding elements</li>
+<li>elements(): for restoring elements (Counter remembers the insertion order of its keys as a feature inherited from dict)</li>
+<li>subtract(): for removing elements</li>
+<li>most_common(), &amp;, |, +, -</li>
+</ul></li>
+<li><p>File related modules: <strong>os, os.path, shutil.os</strong></p></li>
+<li><p><strong>operator</strong> module exports a set of efficient functions corresponding to the intrinsic operators of Python. The functions fall into categories that perform object comparisons, logical operations, mathematical operations and sequence operations. This functions are handy in cases where callables must be stored, passed as arguments (egz. For map(), sorted(), itertools, groupby()), or returned as function results. Probably the most used function is .itemgetter() with which you can sort some list of tuples, or dict,.. with specified key, and is also faster than sort function. It is also more clearable than lambda function when sending as an argument</p>
+<p>egz. If you want to sort some lists/dict first by 2nd element and then by 1st element, you can use key=itemgetter(1,0).</p></li>
+<li><p><strong>numpy</strong> stands for numerical python and it is used for general numeric computations on numerical data saved in arrays. Provides vectorization of mathematical operations on arrays and matrices</p></li>
+<li><p><strong>scipy</strong> stands for scientific python. Collection of algorithms for linear algebra, solving differential equations, numerical integration, optimization, statistics and more.. (built on numpy)</p></li>
+<li><p><strong>pandas</strong> adds data structures and tools designed to work with table-like data. Provides tools for data manipulation: reshaping, merging, sorting, slicing, aggregations.. allows handling missing data. Used to implement ETL (extracting, transforming and loading the datasets)</p></li>
+<li><p><strong>sklearn</strong> provides machine learning algorithms: classification, regression, clustering, model validation, etc… (built on numpy, scipy and matplotlib)</p></li>
+<li><p><strong>matplotlib</strong> is 2D plotting library which produces publication quality figures in a variety of hardcopy formats. A set of functionalities similar to those of MATLAB. Has line plots, scatter plots, barcharts, histograms, pie charts, etc..</p></li>
+<li><p><strong>seaborn</strong> provides high level interface for drawing attractive statistical graphs.. (based on matplotlib)</p></li>
+</ul>
 </section>
 </section>
 
