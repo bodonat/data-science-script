@@ -249,7 +249,22 @@ Note
 <ul>
 <li><strong><strong>init</strong></strong> is a method that is automatically called to allocate memory when a new object (i.e.&nbsp;instance of a class) is created. It acts as a constructor which gets executed when a new object is instantiated and allows the class to classify its attributes.</li>
 <li><strong>self</strong> is an object of a class. The self variable in the init method refers to the newly created object, while in other methods it refers to the object whose method was called. It is used to refer to the object properties of a class.</li>
-<li><strong>object()</strong> returns featureless object that is a base for all classes :::{.callout-note} As Python has no concept of private variables, leading underscores are used to indicate variables that must not be accessed from outside the class. :::</li>
+<li><strong>object()</strong> returns featureless object that is a base for all classes</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As Python has no concept of private variables, leading underscores are used to indicate variables that must not be accessed from outside the class.</p>
+</div>
+</div>
+<ul>
 <li><strong>Named Tuple</strong> can be a great alternative to construct a class. It is an extension of the Python built-in tuple data type, which is structure for grouping objects with different types. When you access an attribute of the built-in tuple, you need to know its index. Named Tuple allows us to give names to the elements, so we can access the attributes by both attribute name and its index. It is good practice to use classes constructed like this when we have a function that takes more than 3 arguments, which is too much. Then it is better to pack most of the arguments into a class.</li>
 </ul>
 <div class="cell">
@@ -425,8 +440,25 @@ Tip
 <li>np.hstack(): stack arrays in sequence horizontally</li>
 <li>np.vstack(): stack arrays in sequence vertically</li>
 </ul>
-<p>Working with files: * “with open(„some.txt“) as f” takes care of closing the file * .write(), .read(), .close(), .readlines() * For faster loading it is commonly to use numpy package: np.savetxt(‘some.txt’, np.array(), fmt=‘%.2f’, header=‘..’), np.loadtxt(‘some.txt’)</p>
-<p>Working with dataframes: * Combining dataframes in pandas: append() (for horizontal stacking) and concat() (for vertical stacking) * Identifying missing values: isnull() and isna() * Handling missing values: fillna() * Creating missing values for known indexes: pd.DataFrame(index=…, columns=…) * df.query(): for extracting data with specified conditions * When you want to create a new df based on a subset of your initial df, it’s best to use the copy() method * Pandas also has str() method * Renaming columns: better to use .rename() function * Setting index to a column: df.set_index([‘some’]) (it removes column automatically) * DataFrame.plot makes plots of Series or DataFrame. There is various kinds of plot to produce and can be assigned in „kind“ parameter. Options are: ‘line’ (default), ‘bar’, ‘barh’, ‘hist’, ‘box’, ‘kde’/‘density’, ‘area’, ‘pie’, ‘scatter’, ‘hexbin’’</p>
+<p>Working with files:</p>
+<ul>
+<li>“with open(„some.txt“) as f” takes care of closing the file</li>
+<li>.write(), .read(), .close(), .readlines()</li>
+<li>For faster loading it is commonly to use numpy package: np.savetxt(‘some.txt’, np.array(), fmt=‘%.2f’, header=‘..’), np.loadtxt(‘some.txt’)</li>
+</ul>
+<p>Working with dataframes:</p>
+<ul>
+<li>Combining dataframes in pandas: append() (for horizontal stacking) and concat() (for vertical stacking)</li>
+<li>Identifying missing values: isnull() and isna()</li>
+<li>Handling missing values: fillna()</li>
+<li>Creating missing values for known indexes: pd.DataFrame(index=…, columns=…)</li>
+<li>df.query(): for extracting data with specified conditions</li>
+<li>When you want to create a new df based on a subset of your initial df, it’s best to use the copy() method</li>
+<li>Pandas also has str() method</li>
+<li>Renaming columns: better to use .rename() function</li>
+<li>Setting index to a column: df.set_index([‘some’]) (it removes column automatically)</li>
+<li>DataFrame.plot makes plots of Series or DataFrame. There is various kinds of plot to produce and can be assigned in „kind“ parameter. Options are: ‘line’ (default), ‘bar’, ‘barh’, ‘hist’, ‘box’, ‘kde’/‘density’, ‘area’, ‘pie’, ‘scatter’, ‘hexbin’’</li>
+</ul>
 </section>
 <section id="modules" class="level3">
 <h3 class="anchored" data-anchor-id="modules">Modules</h3>
