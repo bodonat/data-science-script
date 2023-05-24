@@ -1,0 +1,78 @@
+digraph ds_cycle {
+    
+    node [
+        style=filled 
+        shape=plain 
+        fontname="Arial"
+    ]
+    
+    A [
+       label=<<table border="0" cellborder="1"  cellspacing="0"> 
+            <tr><td><b>Business Understanding   </b></td></tr>
+            <tr><td>Define the problem <br/> to be solved</td></tr>
+        </table>>
+        fillcolor="#FFCCE5"
+    ]
+    
+    B [
+       label=<<table border="0" cellborder="1"  cellspacing="0"> 
+            <tr><td><b>Data Mining   </b></td></tr>
+            <tr><td>Gather or scrape<br/> the necessary data</td></tr>
+        </table>>
+        fillcolor="#FFCCFF"
+    ]
+    
+    C [
+       label=<<table border="0" cellborder="1"  cellspacing="0"> 
+            <tr><td><b>Data Cleaning   </b></td></tr>
+            <tr><td>Handle missing values<br/> and outliers</td></tr>
+        </table>>
+        fillcolor="#E5CCFF"
+    ]
+    
+    D [
+       label=<<table border="0" cellborder="1"  cellspacing="0"> 
+            <tr><td><b>Data Exploration   </b></td></tr>
+            <tr><td>Visual analysis of data</td></tr>
+        </table>>
+        fillcolor="#CCCCFF"
+    ]
+    
+    E [
+       label=<<table border="0" cellborder="1"  cellspacing="0"> 
+            <tr><td><b>Feature engineering   </b></td></tr>
+            <tr><td>Create new features <br/>from the dataset</td></tr>
+        </table>>
+        fillcolor="#CCE5FF"
+    ]
+    
+    F [
+       label=<<table border="0" cellborder="1"  cellspacing="0"> 
+            <tr><td><b>Predictive modeling   </b></td></tr>
+            <tr><td>Train ML models,<br/> evaluate and make
+                <br/> predictions</td></tr>
+        </table>>
+        fillcolor="#CCFFFF"
+    ]
+    
+    G [
+       label=<<table border="0" cellborder="1"  cellspacing="0"> 
+            <tr><td><b>Data Visualization   </b></td></tr>
+            <tr><td>Represent the findings<br/> using plots and 
+                <br/>interactive visualizations</td></tr>
+        </table>>
+        fillcolor="#CCFFE5"
+    ]
+    
+    {rank=same A B C}
+    {rank=same D}
+    {rank=same E F G}
+    
+    A -> B;
+    B -> C;
+    C -> D;
+    D -> E;
+    E -> F;
+    F -> G;
+  
+}
