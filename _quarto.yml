@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "data-science-script"
+  author: "Norah Jones"
+  date: "30. 05. 2023."
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - section1.ipynb
+    - section2.ipynb
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
