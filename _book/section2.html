@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Script for data science - 2&nbsp; Second Part: Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./section1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./section1.html">Chapters</a></li><li class="breadcrumb-item"><a href="./section2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Second Part: Data Science</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Script for data science</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Chapters</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">First Part: Python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Second Part: Data Science</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro"><span class="header-section-number">2.1</span> Intro</a></li>
+  <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics"><span class="header-section-number">2.2</span> Statistics</a>
+  <ul class="collapse">
+  <li><a href="#time-series-analysis" id="toc-time-series-analysis" class="nav-link" data-scroll-target="#time-series-analysis"><span class="header-section-number">2.2.1</span> Time series analysis</a></li>
+  </ul></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><span class="header-section-number">2.3</span> Machine learning</a>
+  <ul class="collapse">
+  <li><a href="#regression-and-classification-algorithms" id="toc-regression-and-classification-algorithms" class="nav-link" data-scroll-target="#regression-and-classification-algorithms"><span class="header-section-number">2.3.1</span> Regression and classification algorithms</a></li>
+  <li><a href="#tuning-model-parameters-evaluation" id="toc-tuning-model-parameters-evaluation" class="nav-link" data-scroll-target="#tuning-model-parameters-evaluation"><span class="header-section-number">2.3.2</span> Tuning model parameters, evaluation</a></li>
+  </ul></li>
+  <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning"><span class="header-section-number">2.4</span> Deep learning</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Second Part: Data Science</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="intro" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="intro"><span class="header-section-number">2.1</span> Intro</h2>
+<p>Data science combines statistics, maths, specialised programs, AI, ML, etc.. Application of specific principles and analytic techniques to extract information from data used in strategic planning, decision making, etc.</p>
+<div class="cell" data-file="ds_flow.txt" data-fig-height="2.5" data-fig-width="8">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="768" height="240" viewbox="0.00 0.00 899.00 263.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 259)">
+<title>
+ds_cycle
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-259 895,-259 895,4 -4,4"></polygon> <!-- A --> <g id="node1" class="node">
+<title>
+A
+</title>
+<polygon fill="#ffcce5" stroke="transparent" points="182,-255 0,-255 0,-194 182,-194 182,-255"></polygon> <polygon fill="none" stroke="black" points="0,-232.5 0,-254.5 182,-254.5 182,-232.5 0,-232.5"></polygon> <text text-anchor="start" x="2.71" y="-239.9" font-family="Arial" font-weight="bold" font-size="14.00">Business Understanding &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="0,-193.5 0,-232.5 182,-232.5 182,-193.5 0,-193.5"></polygon> <text text-anchor="start" x="29.91" y="-216.9" font-family="Arial" font-size="14.00">Define the problem </text> <text text-anchor="start" x="51.31" y="-200.1" font-family="Arial" font-size="14.00"> to be solved</text> </g> <!-- B --> <g id="node2" class="node">
+<title>
+B
+</title>
+<polygon fill="#ffccff" stroke="transparent" points="328,-255 200,-255 200,-194 328,-194 328,-255"></polygon> <polygon fill="none" stroke="black" points="200,-232.5 200,-254.5 328,-254.5 328,-232.5 200,-232.5"></polygon> <text text-anchor="start" x="218.5" y="-239.9" font-family="Arial" font-weight="bold" font-size="14.00">Data Mining &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="200,-193.5 200,-232.5 328,-232.5 328,-193.5 200,-193.5"></polygon> <text text-anchor="start" x="211.48" y="-216.9" font-family="Arial" font-size="14.00">Gather or scrape</text> <text text-anchor="start" x="202.91" y="-200.1" font-family="Arial" font-size="14.00"> the necessary data</text> </g> <!-- A&#45;&gt;B --> <g id="edge1" class="edge">
+<title>
+A-&gt;B
+</title>
+<path fill="none" stroke="black" d="M182.23,-224.5C184.7,-224.5 187.17,-224.5 189.64,-224.5"></path> <polygon fill="black" stroke="black" points="189.8,-228 199.8,-224.5 189.8,-221 189.8,-228"></polygon> </g> <!-- C --> <g id="node3" class="node">
+<title>
+C
+</title>
+<polygon fill="#e5ccff" stroke="transparent" points="492,-255 346,-255 346,-194 492,-194 492,-255"></polygon> <polygon fill="none" stroke="black" points="346,-232.5 346,-254.5 492,-254.5 492,-232.5 346,-232.5"></polygon> <text text-anchor="start" x="366.49" y="-239.9" font-family="Arial" font-weight="bold" font-size="14.00">Data Cleaning &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="346,-193.5 346,-232.5 492,-232.5 492,-193.5 346,-193.5"></polygon> <text text-anchor="start" x="348.97" y="-216.9" font-family="Arial" font-size="14.00">Handle missing values</text> <text text-anchor="start" x="380.87" y="-200.1" font-family="Arial" font-size="14.00"> and outliers</text> </g> <!-- B&#45;&gt;C --> <g id="edge2" class="edge">
+<title>
+B-&gt;C
+</title>
+<path fill="none" stroke="black" d="M328.18,-224.5C330.67,-224.5 333.17,-224.5 335.66,-224.5"></path> <polygon fill="black" stroke="black" points="335.92,-228 345.92,-224.5 335.92,-221 335.92,-228"></polygon> </g> <!-- D --> <g id="node4" class="node">
+<title>
+D
+</title>
+<polygon fill="#ccccff" stroke="transparent" points="491.5,-158 346.5,-158 346.5,-114 491.5,-114 491.5,-158"></polygon> <polygon fill="none" stroke="black" points="347,-136 347,-158 492,-158 492,-136 347,-136"></polygon> <text text-anchor="start" x="358.04" y="-143.4" font-family="Arial" font-weight="bold" font-size="14.00">Data Exploration &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="347,-114 347,-136 492,-136 492,-114 347,-114"></polygon> <text text-anchor="start" x="349.85" y="-120.4" font-family="Arial" font-size="14.00">Visual analysis of data</text> </g> <!-- C&#45;&gt;D --> <g id="edge3" class="edge">
+<title>
+C-&gt;D
+</title>
+<path fill="none" stroke="black" d="M419,-193.73C419,-185.48 419,-176.51 419,-168.19"></path> <polygon fill="black" stroke="black" points="422.5,-168.09 419,-158.09 415.5,-168.09 422.5,-168.09"></polygon> </g> <!-- E --> <g id="node5" class="node">
+<title>
+E
+</title>
+<polygon fill="#cce5ff" stroke="transparent" points="494.5,-69.5 343.5,-69.5 343.5,-8.5 494.5,-8.5 494.5,-69.5"></polygon> <polygon fill="none" stroke="black" points="344,-47 344,-69 495,-69 495,-47 344,-47"></polygon> <text text-anchor="start" x="346.76" y="-54.4" font-family="Arial" font-weight="bold" font-size="14.00">Feature engineering &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="344,-8 344,-47 495,-47 495,-8 344,-8"></polygon> <text text-anchor="start" x="354.52" y="-31.4" font-family="Arial" font-size="14.00">Create new features </text> <text text-anchor="start" x="368.92" y="-14.6" font-family="Arial" font-size="14.00">from the dataset</text> </g> <!-- D&#45;&gt;E --> <g id="edge4" class="edge">
+<title>
+D-&gt;E
+</title>
+<path fill="none" stroke="black" d="M419,-113.92C419,-103.85 419,-91.47 419,-79.74"></path> <polygon fill="black" stroke="black" points="422.5,-79.67 419,-69.67 415.5,-79.67 422.5,-79.67"></polygon> </g> <!-- F --> <g id="node6" class="node">
+<title>
+F
+</title>
+<polygon fill="#ccffff" stroke="transparent" points="703,-78 513,-78 513,0 703,0 703,-78"></polygon> <polygon fill="none" stroke="black" points="513,-56 513,-78 703,-78 703,-56 513,-56"></polygon> <text text-anchor="start" x="535.65" y="-63.4" font-family="Arial" font-weight="bold" font-size="14.00">Predictive modeling &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="513,0 513,-56 703,-56 703,0 513,0"></polygon> <text text-anchor="start" x="553.93" y="-40.4" font-family="Arial" font-size="14.00">Train ML models,</text> <text text-anchor="start" x="515.79" y="-23.6" font-family="Arial" font-size="14.00"> evaluate and make &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> <text text-anchor="start" x="572.2" y="-6.8" font-family="Arial" font-size="14.00"> predictions</text> </g> <!-- E&#45;&gt;F --> <g id="edge5" class="edge">
+<title>
+E-&gt;F
+</title>
+<path fill="none" stroke="black" d="M494.67,-39C497.32,-39 499.97,-39 502.61,-39"></path> <polygon fill="black" stroke="black" points="502.82,-42.5 512.82,-39 502.82,-35.5 502.82,-42.5"></polygon> </g> <!-- G --> <g id="node7" class="node">
+<title>
+G
+</title>
+<polygon fill="#ccffe5" stroke="transparent" points="891,-78 721,-78 721,0 891,0 891,-78"></polygon> <polygon fill="none" stroke="black" points="721,-56 721,-78 891,-78 891,-56 721,-56"></polygon> <text text-anchor="start" x="740.26" y="-63.4" font-family="Arial" font-weight="bold" font-size="14.00">Data Visualization &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="721,0 721,-56 891,-56 891,0 721,0"></polygon> <text text-anchor="start" x="735.96" y="-40.4" font-family="Arial" font-size="14.00">Represent the findings</text> <text text-anchor="start" x="723.9" y="-23.6" font-family="Arial" font-size="14.00"> using plots and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> <text text-anchor="start" x="730.52" y="-6.8" font-family="Arial" font-size="14.00">interactive visualizations</text> </g> <!-- F&#45;&gt;G --> <g id="edge6" class="edge">
+<title>
+F-&gt;G
+</title>
+<path fill="none" stroke="black" d="M703.13,-39C705.62,-39 708.11,-39 710.59,-39"></path> <polygon fill="black" stroke="black" points="710.81,-42.5 720.81,-39 710.81,-35.5 710.81,-42.5"></polygon> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+<ul>
+<li><p><strong>Handling missing values:</strong> If the dataset is large, we can just remove rows with missing data. For smaller datasets, we can substitute it with the mean or average, using df.mean(), or df.fillna(mean),..</p></li>
+<li><p><strong>Handling outliers:</strong> if the data has garbage value or has extreme values you can drop it. Otherwise, you can maybe try different models, normalize data or use algorithms that are less affected by it</p></li>
+<li><p>Difference between <strong>error terms and residuals:</strong> an error term is generally unobservable and a residual is observable and calculable, making it much easier to quantify and visualize. In effect, while an error term represents the way observed data differs from the actual population, a residual represents the way it differs from sample population data. Residuals actually helps us get an accurate estimate of the error.</p></li>
+<li><p><strong>RMSE</strong> is used to measure the deviation of the residuals, and MSE is used to find how close is the line to the actual data. Other metrics: MAE (mean absolute error), MAPE (mean absolute percentage error). <em>from sklearn.metrics import …….</em></p></li>
+<li><p><strong>Cost vs loss function:</strong> loss function refers to the error of one training example, while a cost function calculates the average error across an entire training set</p></li>
+<li><p><strong>Confusion matrix</strong> is used to describe the performance of the classification model.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Actual Positive</th>
+<th style="text-align: center;">Actual Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Predicted Positive</strong></td>
+<td style="text-align: center;">True Positive</td>
+<td style="text-align: center;">False Positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Predicted Negative</strong></td>
+<td style="text-align: center;">False Negative</td>
+<td style="text-align: center;">True Negative</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>accuracy:</strong> (true positive + true negative) / total observations.. RMSE is a measure of accuracy in regression</li>
+<li><strong>error rate:</strong> (false positive + false negative) / total observations</li>
+<li><strong>precision:</strong> true positive / (true positive + false positive)</li>
+<li><strong>specificity:</strong> true negative / (true negative + false positive)</li>
+<li><strong>sensitivity/recall:</strong> true positive / (true positive + false negative).. helps to identify the misclassified positive predicitions</li>
+</ul>
+<p>Accuracy metric can be reliable metric only if the dataset is class-balanced. F1 score is a ML evaluation metric that assesses the predictive skill of a model by elaborating on its class-wise performance rather than an overall performance as done by accuracy. If accuracy is 100%, then F1 = 1.</p>
+<p><span class="math display">\[ F1 = 2 * \text{precision} * \text{recall} / (\text{precision + recall}) \]</span></p>
+<p><strong>Cut off/threshold</strong> is the probability that the prediction is true. It represents the tradeoff between false positives and false negatives. Normally, the cut-off will be on 0.5 (random) but you can increase it. All predicted outcome with a probability above it will be classified in the first class and the other in the second class.</p></li>
+</ul>
+</section>
+<section id="statistics" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="statistics"><span class="header-section-number">2.2</span> Statistics</h2>
+<ul>
+<li><strong>Deterministic vs stochastic process:</strong> a deterministic process is a mathematical model where the output depends solely on the input, and there is no randomness involved. In contrast, a stochastic process is a mathematical model that involves randomness and is used to model situations that may not have inherent randomness. A deterministic model is completely predictable also.</li>
+<li><strong>Unit root</strong> is a feature of some stochastic processes. A linear stochastic process has a unit root if 1 is a root of the process’s characteristic equation. Such a process is non-stationary. If the other roots of the characteristic equation lie inside the unit circle, then the first difference of the process will be stationary; otherwise, the process will need to be differenced multiple times to become stationary.</li>
+<li><strong>Bias</strong> is a systematic tendency to underestimate or overestimate the value of a parameter (you were not random!). It implies that the data selection may have been skewed by the collection criteria (in favor or against an idea). It can also be defined as a systematic (built-in) error which makes all values wrong by a certain amount. In ML, the inability for a ML method to capture the true relationship is called bias, that happens because algorithm makes simplified assumptions so that it can easily understand the target function.</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Bias</strong></th>
+<th style="text-align: center;"><strong>Error</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Produces prejudiced results</td>
+<td style="text-align: center;">Results in inaccurate outcomes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Identified manually or through software packages</td>
+<td style="text-align: center;">Identified through calculations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Occurs systematically</td>
+<td style="text-align: center;">Occurs randomly</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Normal/uniform distribution</strong> is the kind of distribution that has no bias either to the left or to the right and is in the form of a bell-shaped curve. In this distribution, mean is equal to the median.</li>
+<li><strong>Skewed distribution</strong> is a distribution where the curve is inclined towards one side.</li>
+<li><strong>Variance</strong> is a statistical measurement used to determine the average of each point from the mean (the average of the squared differences from the mean). In ML the difference in fits between training and test sets is called variance, i.e.&nbsp;it refers to the changes in the model when using different portions of the training data set. Simply put, variance is the variability in the model prediction. <strong>Standard deviation</strong> is the spread of a group of numbers from the mean.</li>
+</ul>
+<p><span class="math display">\[ Var(X) = E[X^2] – E[X]^2 \]</span></p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Signs of high bias ML model</strong></th>
+<th style="text-align: center;"><strong>Signs of high variance ML model</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Failure to capture data trends</td>
+<td style="text-align: center;">Noise in data set</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Underfitting</td>
+<td style="text-align: center;">Overfitting</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Overly simplified</td>
+<td style="text-align: center;">Complexity</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">High error rate</td>
+<td style="text-align: center;">Forcing data points together</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Robustness</strong> represents the system’s capability to handle differences and variances effectively</li>
+<li>Total error = variance + bias + irreducible error</li>
+</ul>
+<div class="cell" data-execution_count="56">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="section2_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Correlation vs covariance:</strong> correlation is a measure of relationship between two variables and says how strong are the variables related. Range is -1 to 1. Covariance represents the extent to which the variables change together in a cycle. This explains the systematic relationship between pair of variables where changes in one affect changes in another variable. Range is -inf to +inf, and is affected by scalability.</li>
+<li><strong>Confounding variables</strong> are extraneous variables in a statistical model that correlates directly or inversely with both the dependent and the independent variable. Left unchecked, confounding variables can introduce many research biases to your work, causing you to misinterpret your results.</li>
+<li><strong>R-squared/coefficient of determination</strong> is a statistical measure in a linear regression model that determines the proportion (percentage) of the variance in the dependent variable that can be explained by the independent variable. In other words, it evaluates the scatter of the data points around the fitted regression line, i.e.&nbsp;shows how well the regression model explains observed data.</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+R^{2} &amp;= 1 - \frac{\text{Residual variance}}{\text{Total variance}} \\
+&amp;=\frac{\text{Total variance - Residual variance}}{\text{Total variance}} \\
+&amp;=\frac{\text{Explained variance}}{\text{Total variance}} \\
+&amp;=\text{Fraction of total variance explained}
+\end{aligned}\]</span></p>
+<ul>
+<li><p><strong>p-value</strong> is the measure of the statistical importance of an observation. We compute the p-value to understand whether the given data really describes the observed effect or not. If p&lt;=0.05 it suggests that there is only 5% chance that the outcomes of an experiment are random and the null hypothesis must be rejected. <span class="math display">\[ p_{value} = P(E|H_{0}) \]</span></p></li>
+<li><p><strong>The statistical power</strong> of a binary hypothesis test is the probability that the test rejects the null hypothesis when a specific alternative hypothesis is true</p></li>
+<li><p><strong>Confidence interval</strong> is a range of values likely containing the population parameter. <strong>Confidence level</strong> is denoted by 1-<span class="math inline">\(\alpha\)</span>, where <span class="math inline">\(\alpha\)</span> is level of significance (usually 5%). <strong>Point estimate</strong> is an estimate of the population parameter (can be derived with Maximum Likelihood estimator for egz.) <img src="Picture7.png" class="img-fluid" data-fig-align="center"></p></li>
+<li><p><strong>Univariate, bivariate and multivariate analysis:</strong> univariate analysis allows us to understand the data and extract patterns and trends out of it. Bivariate analysis allows us to figure out the relationship between the variables. Multivariate analysis allows us to figure out the effects of all other variables (input variables) on a single variable (the output variable).</p></li>
+<li><p><strong>Sampling</strong> is the selection of individual members or a subset of the population to estimate the characters of the whole population. It is useful with datasets that are too large to efficiently analyze in full. There are two types of sampling techniques: probability and non-probability. <strong>Resampling</strong> is the process of changing/exchanging data samples, identifying the impact of these changes on model and prediction characteristics, and continuing until optimal results are achieved. It is done in cases of estimating the accuracy of sample statistics or validating models by using random subsets to ensure variations are handled (egz. Bootstraping, cross-validation)</p>
+<p>Types of biases that can occur during sampling: selection bias, undercoverage bias and survivorship bias. <strong>Selection bias</strong> occurs when a sample selection does not accurately reflect the target population. <strong>Survivorship bias</strong> is the logical error of focusing on aspects that support surviving a process and casually overlooking those that did not. This can lead to wrong conclusions in numerous ways.</p></li>
+<li><p><strong>Bootstrap method</strong> is a resampling method by independently sampling with replacement from an existing sample data with same sample size n, and performing inference among these resampled data.</p></li>
+<li><p><strong>Normalization/Min-Max scaling</strong> is used to transform features to be on a similar scale ([0,1] or [-1,1]). It is useful when there are no outliers. <span class="math display">\[ X_{new} = (X - X_{min}) / (X_{max} - X_{min}) \]</span> Normalization is useful when your data have different dimensions and the method you’re employing doesn’t make assumptions about the distirbution of you data.</p></li>
+<li><p><strong>Standardization/Z-score</strong> normalization is the transformation of features by subtracting from mean and dividing by standard deviation. It is not affected with outliers since its not bounded to a certain range. Changing the range of your data with scaling is different from changing the distribution of your data with Normalization. Also, standardization presupposes that the distribution of your data is Gaussian. <span class="math display">\[ z = \frac{x-\mu}{\sigma}, \]</span> where <span class="math inline">\(\mu\)</span> represents the mean and <span class="math inline">\(\sigma\)</span> represents the standard deviation.</p></li>
+<li><p><strong>The Central limit theorem</strong> says that, given a large enough sample size, the distirbution of sample averages/means will be approximtely normal. This means that we can use normal distirbution to make predictions about populations based on samples.</p></li>
+<li><p><strong>The Law of large numbers</strong> is a theorem that describes the result of performing the same experiment very frequently. It states that the sample mean, sample variance, and sample standard deviation converge to what they are trying to estimate</p></li>
+<li><p><strong>Gradient</strong>, for purposes of this paper, measures how much the output of a function changes if you change the inputs a little bit (from a given point).</p></li>
+<li><p><strong>Categorical, continuous and ordinal variables.</strong> An ordinal variable is a categorical variable for which the possible values are ordered.</p></li>
+<li><p><strong>Histrograms vs boxplots:</strong> Boxplots are more often used in comparing several datasets and take less space than histograms. Histograms are used to know and understand the probability distribution underlying a dataset</p></li>
+<li><p><strong>Histograms vs bar graphs:</strong> a bar graph is the graphical representation of categorical data, whereas a histogram is the graphical representation of data where data is grouped into continuous number ranges</p></li>
+<li><p><strong>Kernel density estimation (KDE)</strong> is a method for visualizing the distirbution of observations in dataset over a continuous interval or time period</p></li>
+<li><p><strong>Histograms vs density plots:</strong> an advantage that density plots have over histograms is that they’re better at determining the distribution shape because they are not affected by the number of bins used.</p></li>
+<li><p><strong>Akaike information Criterion (AIC):</strong> is a mathematical method for evaluating how well a model fits the data it was generated from. In statistics, it is used to compare different possible models (model selection). Lower AIC scores are better!</p></li>
+</ul>
+<section id="time-series-analysis" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="time-series-analysis"><span class="header-section-number">2.2.1</span> Time series analysis</h3>
+<p>Time series analysis (TSA) is a mathematical approach for predicting or forecasting the future pattern of data using historical data arranged in a successive order for a particular time period. <em>statsmodels.tsa</em> package contains model classes and functions that are useful for time series analysis.</p>
+<ul>
+<li><p><strong>Prediction vs forecasting:</strong> prediction is concerned with estimating the outcomes of unseen data. Forecasting is a sub-discipline of prediction in which we are making predictions about the future on the basis of time series data, so the only difference is that we consider the temporal dimension</p></li>
+<li><p><strong>Trend vs season vs cyclic:</strong> A trend exists when there is a long-term increase or decrease in the data. It does not have to be linear. A seasonal pattern occurs when a time series is affected by seasonal factors such as the time of the year or the day of the week. Seasonality is always of a fixed and known frequency. A cycle occurs when the data exhibit rises and falls that are not of a fixed frequency.</p></li>
+<li><p><strong>Rolling average/ moving average</strong> is a metric that calculates trends over short periods of time using a set of data. Is uses smaller parts of the data and then rolls or moves for each new period. Calculating next rolling period involves leaving off your earliest unit and adding in your next unit. For egz., if you want to track down monthly data, take 12-months rolling period. After calculating average of 12 months, leave first month and add new month, then calculate average again for new rolling period. In that way, rolling period keeps moving.</p></li>
+<li><p><strong>Augmented Dickey-Fuller test:</strong> tests the null hypothesis that a unit root is present in a time series sample. It is a negative number, and the more negative it is, the stronger the rejection of the hypothesis that there is a unit root at some level of confidence.</p>
+<p>There are 3 main versions of the test (Dickey-Fuller test is presented for simplicity):</p>
+<ol type="1">
+<li>Test for a unit root: <span class="math inline">\(\Delta y_{t} = \delta y_{t-1} + u_{t} \quad(u_{t} \text{ is error term})\)</span></li>
+<li>Test for a unit root with constant: <span class="math inline">\(\Delta y_{t} = a_{0} + \delta y_{t-1} + u_{t}\)</span></li>
+<li>Test for a unit root with constant and deterministic time trend: <span class="math inline">\(\Delta y_{t} = a_{0} + a_{1}t + \delta y_{t-1} + u_{t}\)</span></li>
+</ol>
+<p>-&gt; Hypothesis: H0: δ = 0 (process is not stationary) H1: δ &lt; 0 (process is stationary)</p>
+<p>-&gt; from statsmodels.tsa.stattools import adfuller. For additional parameters, it is the best practice to put autolag=‘AIC’. regression parameter has 4 parameters: ‘c’ for only constant (default), ‘ct’ for constant and trend, ‘ctt’ for constant and linear and quadratic trend, ‘n’ for no constant and no trend.</p>
+<p>-&gt; Which version of test to choose? δ needs to be &lt;= 0, so one way to find out is to see if it fits in the right interval. Other way is to compare AIC values and choose lowest. Also by inspecting data we can assume which to choose, but the best way is to perform all 3 types and inspect results.</p></li>
+<li><p><strong>Stationary time series:</strong> the only assumption in TSA is that the data is <em>stationary</em>. Data is stationary when the variance and mean of the series are constant with time, with no periodic component (independent of time influence).</p>
+<ul>
+<li>Check it with Augmented Dickey-Fuller test</li>
+<li>Trend can result in a varying mean over time, wheras seasonality can result in a changing variance over time, both which define a time series as being non-stationary. (stationary datasets are much easier to model).</li>
+<li><strong>Differencing</strong> is a widely used data transform for making time series data stationary. Notice that some temporal structures may still exist after performing a differencing operation, such as in the case of a nonlinear trend. The number of times that differencing is performed is called the difference order. DataFrame diff() function can be used.</li>
+</ul></li>
+<li><p>There are two popular types of non-stationary time series:</p>
+<ol type="a">
+<li><strong>Trend-stationarity time series</strong> are those whose mean trend is deterministic. In other words, the mean of the time series changes over time but at a constant rate. The time series is not stationary in the strict sense, but it is stationary in the sense that the trend is stable and predictable</li>
+<li><strong>Difference-stationarity time series</strong> have a mean trend that is stochastic. In other words, the mean of the time series changes over time in a random pattern.</li>
+</ol></li>
+<li><p><strong>Log transform:</strong> time series with an exponential distribution can be made linear by taking the logarithm of the values. Log transforms are popular with time series data as they are effective at removing exponential variance</p></li>
+<li><p><strong>Autocorrelation analysis</strong> is used in detecting patterns and checking for randomness. The analysis involves looking at the Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots.</p>
+<ul>
+<li>Autocorrelation is a mathematical representation of the degree of similarity between a given time series and a lagged version of itself over successive time intervals. ACF function measures and plots the average correlation between data points in time series and previous values of the series measured for different lag lenghts.</li>
+<li>Partial autocorrelation is similar to autocorrelation except that each partial correlation controls for any correlation between observations of a shorter lag length. For egz., at second lag, the PACF measures the correlation between data points at time „t“ with data points at time „t-2“, while the ACF measures the same correlation but after controlling for the correlation between data points at time „t“ with those at time „t-1“.</li>
+<li><em>from statsmodels.graphics.tsaplots import plot_acf, plot_pacf</em></li>
+<li>Stationarity of time series can be inspected with ACF plot (along with ADF test). In case the autocorrelations are positive for multiple lags, the series requires further differencing; but if lag 1 autocorrelated itself pretty negatively, then the series is possibly over-differenced</li>
+</ul></li>
+</ul>
+<section id="models" class="level4" data-number="2.2.1.1">
+<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="models"><span class="header-section-number">2.2.1.1</span> Models</h4>
+<ul>
+<li><p><strong>AutoRegressive model (AR):</strong> it is a linear model where current period values are a sum of past outcomes multiplied by a numeric factor. We denote it as AR(p), where „p“ is called the order of the model and represents the number of lagged values we want to include. p can be determined from PACF plot. For p=1: <span class="math display">\[ X_{t} = C + \phi_{1}X_{t-1} + \varepsilon_{t}, \]</span> The coefficient <span class="math inline">\(\phi_{1}\)</span> is a numeric constant with value between -1 and 1. When multiplied with past value it represents a part which remains in the future. You would choose an AR model if you believe that previous observations have a direct effect on the time series.</p></li>
+<li><p><strong>Moving Average (MA):</strong> it’s a statistic that captures the average change in data series over time. We denote it as MA(q), where „q“ is called the order of the model and represents the number of past forecast errors (or the size of the moving average window). q can be determined from ACF plot. You would choose an MA model if you believe that the errors have a direct effect on the time series.</p></li>
+<li><p><strong>AutoRegressive Moving Average (ARMA):</strong> p,q</p></li>
+<li><p><strong>AutoRegressive Integrated Moving Average (ARIMA):</strong> p,d,q.. where d is the difference order</p></li>
+<li><p><strong>AutoRegressive Moving Average with eXogeneous factors (ARMAX):</strong> exogeneous variables are external data used in forecast (external effects)</p></li>
+<li><p><strong>Seasonal AutoRegressive Integrated Moving Average (SARIMA):</strong> p,d,q,P,D,Q,m.. where m is the number of time steps for a single seasonal period, p,d,q are trend elements and P,D,Q are seasonal elements</p></li>
+<li><p><strong>Seasonal AutoRegressive Integrated Moving Average with eXogeneous factors (SARIMAX)</strong></p>
+<p>STEPS FOR BUILDING ONE OF THESE MODELS:</p>
+<ol type="1">
+<li><p>Check for stationarity of time series and perform differencing if needed. This is because the term „autoregressive“ implies Linear Regression model (using its lags as predictors) and it works well for independent and non-correlated predictors</p></li>
+<li><p>Determine parameters. It can be done with inspecting acf/pacf plots</p></li>
+<li><p>Fit the model. Inspect coefficients and P(&gt;|z|) with .summary() function and decide if it is needed for further tuning of parameters</p></li>
+<li><p>Check residuals for making sure model has captured adequte information from the data (they should look like white noise). If density looks normally distirbuted, model is ready.</p></li>
+<li><p>Make predictions (using .forecast() or .predict() function)</p></li>
+<li><p>Evaluate model predictions using common metrics (MAE, RMSE,..)</p>
+<ul>
+<li>Alternatively, use <em>pmdarima</em> package and <em>auto_arima</em> function to automate steps 1 to 3. Be aware that sometimes the manually fitted model is closer to the actual test set</li>
+<li>Alternatively, use plot_diagnostics to automate step 4. Values of good fit:
+<ol type="a">
+<li>Standardized residual: there are no obvious patterns in residuals, with values having a mean of zero</li>
+<li>The KDE curve should be very similar to the normal distribution</li>
+<li>Normal Q-Q: most of the data points should lie on the straight line</li>
+<li>Correlogram: 95% of correlations for lag greater than zero should not be significant</li>
+</ol></li>
+<li>Suggestion: conduct time series cross-validation to select the best model, i.e.&nbsp;repeat model assessment for different train / test sets</li>
+<li>Pro tip: if data shows exponential trend you can do a log transform before applying a model, then later apply inverse transformation (exponential function)</li>
+</ul></li>
+</ol></li>
+</ul>
+<section id="useful-tipsfunctions" class="level5" data-number="2.2.1.1.1">
+<h5 data-number="2.2.1.1.1" class="anchored" data-anchor-id="useful-tipsfunctions"><span class="header-section-number">2.2.1.1.1</span> Useful tips/functions</h5>
+<ul>
+<li>Date increment used for a date range: <em>pandas.tseries.offsets.DateOffset</em></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<section id="machine-learning" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">2.3</span> Machine learning</h2>
+<p>Hypothesis in the content of ML represents a mathematical function that an algorithm uses to represent the relationship between the target variable and features. Learnings can be divided into supervised and unsupervised learning.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Supervised learning</strong></th>
+<th style="text-align: center;"><strong>Unsupervised learning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Works on the data that contains both inputs and the expected output, i.e.&nbsp;the labeled data</td>
+<td style="text-align: center;">Works on the data that contains no mappings from input to output, i.e.&nbsp;the unlabeled data</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Used to create models that can be employed to predict or classify things</td>
+<td style="text-align: center;">Used to extract meaningful information out of large volumes of data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Egz. Decision trees, logistic regression, svm</td>
+<td style="text-align: center;">Egz. K-means clustering, hierarchical clustering, apriori algorithm</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Test set vs validation set:</strong> test set is used to evaluate the performance of the trained model, and the validation set is part of the training set that is used to select parameters for avoiding model overfitting. (80% training, 10% validation, 10% test)</li>
+</ul>
+<section id="regression-and-classification-algorithms" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="regression-and-classification-algorithms"><span class="header-section-number">2.3.1</span> Regression and classification algorithms</h3>
+<ul>
+<li><p><strong>Regression:</strong> linear (when variables are continuous and numeric) and logistic (when variables are continuous and categorical)</p>
+<ul>
+<li><strong>Linear regression</strong> is supervised learning algorithm, which helps in finding the linear relationship between two variables. It finds the smallest sum of squared residuals that is possible for the dataset.</li>
+</ul></li>
+<li><p><strong>Classification</strong> refers to a predictive modeling process where a class label is predicted for a given example of input data. It helps categorize the provided input into a label that other observations with similar features have.</p>
+<ul>
+<li><p><strong>Naive Bayes</strong> is supervised classification ML algorithm based on the Bayes theorem, which deals with the probability of an event occuring given that another event has already occured (i.e.&nbsp;mathematical formula for determining conditional probability). It is based on two assumptions, first, each feature/attribute present in the dataset is independent of another, and second, each feature carries equal importance. It has „naive“ in it because it assumes that the occurence of a certain feature is independent of the occurence of other features (hence each feature individually contributes to identify the result), which is unrealistic for real-world data</p></li>
+<li><p><strong>Support vector machine (SVM)</strong> is a supervised ML model that considers the classification algorithms for two-group classification problems. It is a representation of the training data as points in space that are seperated into categories with the help of a clear gap that should be as wide as possible. <strong>Kernel function</strong> is used to transform the data that is not linearly separable into one that is. It is generalized dot product function used for the computing dot product of vectors xx and yy in high dimensional feature space. This transformation is based on kernel trick (projecting data onto a higher dimension space where it can be linearly divided by a plane).</p></li>
+<li><p><strong>Logistic regression</strong> is classification algorithm that is used to predict the probability of certain classes based on some dependent variables. Estimating probability is done by using its underlying logistic function (sigmoid). In short, the logistic regression model computes a sum of the input features and calculates the logistic of the result.</p>
+<p>Altough it is classiciation algorithm (it predicts a discrete class), it is part of the regression family as it involves predicting outcomes based on quantitative relationships between variables. Unlike, linear regression, it accepts both continuous and discrete variables as input and its output is qualitative.</p>
+<p>Sigmoid function: <span class="math inline">\(\quad S(x) = \frac{1}{1 + e^{-x}} = \frac{e^{x}}{e^{x} + 1} = 1 - S(-x).\)</span></p></li>
+</ul></li>
+<li><p><strong>Elbow method</strong> is used to select „k“ for k-means clustering. It plots the value of the cost function produced by different values of k (for egz. 1 to 15). k-means cost function is sum of squared distances of each data point to respective centroid of cluster to which the data points belong.</p></li>
+<li><p><strong>A ROC curve</strong> is a graph showing the performance of a classification model at all classification thresholds ([0,1]). It plots two parameters: true positive rate (sensitivity) and false positive rate (1-specificity). Also, decreasing the threshold moves up along the curve. Classifiers that give curves closer to the top-left corner indicate a better performance. Note that the ROC does not depend on the class distribution and this makes it useful for evaluating classifiers predicting rare events such as diseases or disasters. In contrast, evaluating performance using accuracy would favor classifiers that always predict a negative outcome for rare events. To compare different classifiers, it is useful to summarize the performance of each classifier into a single measure- <strong>AUC</strong> (area under the ROC curve). The AUC is the probability the model will score a randomly chosen positive class higher than a randomly chosen negative class.</p></li>
+<li><p>CART is name for classification and regression trees</p></li>
+<li><p><strong>Decision tree</strong> is non-parametric model that can be used for both classification and regression. Non-parametric means that they don’t increase their number of parameters as we add more features. They are constructed using nodes and branches, where the root node testes a feature which best splits the data. Decision trees are built by recursively splitting our training samples using the features from the data that work best for the specific task. The process is done by evaluating certain metrics („information entropy“), depending if the feature is dicrete or continuous.</p>
+<p>Steps are:</p>
+<ol type="1">
+<li>Take the entire data set as input</li>
+<li>Look for a split that maximizes the separation of the classes</li>
+<li>Apply the split (divide step)</li>
+<li>Re-apply steps 1) and 2) to the divided data</li>
+<li>Stop when you meet stopping criteria</li>
+<li>Pruning (clean up the tree if you went too far)</li>
+</ol>
+<p><strong>Entropy</strong> in ML is the measurement of disorder or impurities in the information processed.</p>
+<p><span class="math display">\[ E = -\sum^{N}_{i=1}P_{i}\text{log}_{2}P_{i}, \]</span> where <span class="math inline">\(P_{i}\)</span> is probability of randomly selecting an example in class i.</p>
+<p><strong>Information gain</strong> is a measure of how much entropy is reduced when a particular feature is used to split the data. It calculates the difference between entropy before and after the split.</p>
+<p><strong>Pruning</strong> is a technique that simplifies the decision tree by reducing the rules. It helps to avoid the complexity and improves accuracy.</p></li>
+<li><p><strong>Random forest</strong> is a model built up of a number of decision trees. If you split the data into different packages and make a decision tree in each of the different groups of data. The random forest brings all those trees together (individual trees need to have low correlations with each other).</p>
+<p>Steps to build a model:</p>
+<ol type="1">
+<li>Randomly select <em>k</em> features from a total of <em>m</em> features (k&lt;&lt;m)</li>
+<li>Among the <em>k</em> features, calculate the node using the best split point</li>
+<li>Split the node into daughter nodes using the best split</li>
+<li>Repeat steps two and three until leaf nodes are finalized</li>
+<li>Build forest by repeating steps one to four for <em>n</em> times to create <em>n</em> number of trees</li>
+</ol></li>
+</ul>
+</section>
+<section id="tuning-model-parameters-evaluation" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="tuning-model-parameters-evaluation"><span class="header-section-number">2.3.2</span> Tuning model parameters, evaluation</h3>
+<p><strong>Overfitting</strong> referes to a model that is only set for a very small amount of data and ignores the bigger picture.</p>
+<p>There are three main methods to avoid it:<br>
+&nbsp;&nbsp;- feature selection<br>
+&nbsp;&nbsp;- cross-validation<br>
+&nbsp;&nbsp;- feature engineering (creating more data samples using the existing set of data, for egz. In CNN it is producing new images by rotating, scaling, flipping,..)<br>
+&nbsp;&nbsp;- regularization<br>
+&nbsp;&nbsp;- early stopping (regularization technique that identifies the point from where the training data leads to generalization error<br>
+&nbsp;&nbsp;- dropouts (regularization technique used in the case of NN where we randomly deactivate a proportion of neurons in each layer)</p>
+<ul>
+<li>Dimensionality reduction helps in compressing data and removing redundant features. <strong>Feature selection</strong> is the method of reducing the input variable to your model by using only relevant data and getting rid of noise in data.</li>
+</ul>
+<div class="cell" data-fig-height="2" data-fig-width="4">
+<div class="cell-output-display">
+<div id="feature-selection">
+<div>
+<svg width="384" height="192" viewbox="0.00 0.00 287.92 196.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 192.6)">
+<title>
+tree
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-192.6 283.92,-192.6 283.92,4 -4,4"></polygon> <!-- A --> <g id="node1" class="node">
+<title>
+A
+</title>
+<polygon fill="#3399ff" stroke="black" points="111.42,-152.1 111.42,-188.1 234.81,-188.1 234.81,-152.1 111.42,-152.1"></polygon> <text text-anchor="middle" x="173.12" y="-165.9" font-family="Arial" font-size="14.00">Feature selection</text> </g> <!-- B1 --> <g id="node2" class="node">
+<title>
+B1
+</title>
+<polygon fill="lightskyblue" stroke="black" points="74.1,-79.1 74.1,-115.1 160.14,-115.1 160.14,-79.1 74.1,-79.1"></polygon> <text text-anchor="middle" x="117.12" y="-92.9" font-family="Arial" font-size="14.00">Supervised</text> </g> <!-- A&#45;&gt;B1 --> <g id="edge1" class="edge">
+<title>
+A-&gt;B1
+</title>
+<path fill="none" stroke="black" d="M159.56,-151.91C152.75,-143.28 144.37,-132.66 136.86,-123.13"></path> <polygon fill="black" stroke="black" points="139.49,-120.81 130.55,-115.13 133.99,-125.15 139.49,-120.81"></polygon> </g> <!-- B2 --> <g id="node3" class="node">
+<title>
+B2
+</title>
+<polygon fill="lightskyblue" stroke="black" points="178.32,-79.1 178.32,-115.1 279.92,-115.1 279.92,-79.1 178.32,-79.1"></polygon> <text text-anchor="middle" x="229.12" y="-92.9" font-family="Arial" font-size="14.00">Unsupervised</text> </g> <!-- A&#45;&gt;B2 --> <g id="edge2" class="edge">
+<title>
+A-&gt;B2
+</title>
+<path fill="none" stroke="black" d="M186.67,-151.91C193.48,-143.28 201.86,-132.66 209.37,-123.13"></path> <polygon fill="black" stroke="black" points="212.24,-125.15 215.69,-115.13 206.75,-120.81 212.24,-125.15"></polygon> </g> <!-- C1 --> <g id="node4" class="node">
+<title>
+C1
+</title>
+<polygon fill="lightcyan" stroke="black" points="0,-3.3 0,-39.3 64.23,-39.3 64.23,-3.3 0,-3.3"></polygon> <text text-anchor="middle" x="32.12" y="-17.1" font-family="Arial" font-size="14.00">Intrinsic</text> </g> <!-- B1&#45;&gt;C1 --> <g id="edge3" class="edge">
+<title>
+B1-&gt;C1
+</title>
+<path fill="none" stroke="black" d="M97.4,-78.98C86.14,-69.2 71.84,-56.79 59.5,-46.08"></path> <polygon fill="black" stroke="black" points="61.57,-43.24 51.72,-39.32 56.98,-48.52 61.57,-43.24"></polygon> </g> <!-- C2 --> <g id="node5" class="node">
+<title>
+C2
+</title>
+<polygon fill="lightcyan" stroke="black" points="82.28,-0.5 82.28,-42.1 151.96,-42.1 151.96,-0.5 82.28,-0.5"></polygon> <text text-anchor="middle" x="117.12" y="-25.5" font-family="Arial" font-size="14.00">Wrapper</text> <text text-anchor="middle" x="117.12" y="-8.7" font-family="Arial" font-size="14.00"> method</text> </g> <!-- B1&#45;&gt;C2 --> <g id="edge4" class="edge">
+<title>
+B1-&gt;C2
+</title>
+<path fill="none" stroke="black" d="M117.12,-78.98C117.12,-71.09 117.12,-61.48 117.12,-52.43"></path> <polygon fill="black" stroke="black" points="120.62,-52.2 117.12,-42.2 113.62,-52.2 120.62,-52.2"></polygon> </g> <!-- C3 --> <g id="node6" class="node">
+<title>
+C3
+</title>
+<polygon fill="lightcyan" stroke="black" points="169.82,-0.5 169.82,-42.1 236.41,-42.1 236.41,-0.5 169.82,-0.5"></polygon> <text text-anchor="middle" x="203.12" y="-25.5" font-family="Arial" font-size="14.00">Filter</text> <text text-anchor="middle" x="203.12" y="-8.7" font-family="Arial" font-size="14.00"> method</text> </g> <!-- B1&#45;&gt;C3 --> <g id="edge5" class="edge">
+<title>
+B1-&gt;C3
+</title>
+<path fill="none" stroke="black" d="M137.06,-78.98C147.47,-70.06 160.42,-58.94 172.1,-48.92"></path> <polygon fill="black" stroke="black" points="174.62,-51.37 179.93,-42.2 170.06,-46.05 174.62,-51.37"></polygon> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p><br>
+<span class="math inline">\(~~~~~~~~\)</span>- Filter method: features are dropped based on their relation to the output, or how they are correlating to the output</p>
+<p><span class="math inline">\(~~~~~~~~\)</span>- Wrapper method: we split our data into subsets and train a model using this. Based on the output of the model, we add and subtract features and train the model again. It forms the subsets using a greedy approach and evaluates the accuracy of all the possible combinations of features.</p>
+<ul>
+<li><p><strong>Multicollinearity</strong> is reflected in the model when independent variables in a multiple regression model are deduced to possess high correlations with each other. It can be overcomed by removing a few highly correlated variables from the equation.</p></li>
+<li><p><strong>Feature scaling</strong> is one of the most important data preprocessing steps in ML. Algorithms that compute the distance between the features are biased towards numerically larger values if the data is not scaled. Most popular are normalizaton and standardization. Also, sklearn library provides transformers <em>MinMaxScaler</em> and <em>StandardScaler</em>.</p></li>
+<li><p><strong>Feature engineering</strong> is the method that is used to create new features from the given dataset using the existing variables. For egz. Imputation, discretization, categorical encoding,..</p></li>
+<li><p><strong>Cross-validation</strong> is a statistical method used to estimate the performance of ML models. It is used to protect against overfitting in a predictive model, particularly in a case where the amount of data may be limited.</p>
+<p><strong>k-fold cross validation</strong> guarantees that the score of our model does not depend on the way we picked the train and test set. The data is first randomly divided into k number of subsets. For each subset in your dataset, build your model on k-1 subsets of the dataset. Then, test the model to check the efectiveness for kth subset. Repeat this until each of k-subsets has served as the test set. The average of your <em>k</em> recorded accuracy is called the cross-validation accuracy and will serve you as your performance metric for the model. The disadvantage of this method is that the training algorithm has to be rerun from scratch <em>k</em> times. Also, it only estimates the accuracy but does not improve it.</p></li>
+<li><p><strong>Regularization</strong> is a form of regression which discourages learning a more complex or flexible model, so as to avoid the risk of overfitting. The general idea is to penalize complicated models by adding an additional penalty to the loss function in order to generate a larger loss. In this way, we can discourage the model from learning too many details and the model is much more general. Three popular methods are Ridge regression (L2 norm, most used), Lasso (L1 norm) and Dropout (used in neural networks). If there is noise in the training data, then estimated coefficients won’t generalize well to the future data and this is where regularization comes in. It happens by adding a tuning parameter λ that decides how much we want to penalize the flexibility of our model. As the value of λ rises, it reduces the value of coefficients and thus reducing the variance. Till a point, this increase in λ is beneficial as it is only reducing the variance (hence avoiding overfitting), without loosing any important properties in the data. But after certain value, the model starts lossing important properties, giving rise to bias in the model and thus underfitting.</p></li>
+<li><p><strong>Ensemble learning</strong> is combining several individual models together to improve performance.</p>
+<ol type="1">
+<li><strong>Boosting</strong> is one of the ensemble learning methods where we create multiple models and sequentially train them by combining weak models iteratively in a way that training a new model depends on the models trained before it. We take the patterns learned by a previous model and test them on a dataset when training the new model. In each iteration, we give more importance to observations in the dataset that are incorrectly handled or predicted by previous models. It is useful in reducing bias also.</li>
+<li><strong>Bagging</strong> is an ensemble learning method where we generate some data using the bootstrap method, in which we use an already existing dataset and generate multiple samples of the „N“ size. This bootstrapped data is then used to train multiple models in parallel, which makes it more robust than a simple model. Once all the models are trained and it is time to make a prediction, we make predictions using all the trained models and then average the result in the case of regression, and for classification, we choose the result that has the highest frequency.</li>
+<li><strong>Stacking</strong> is an ensemble learning method where we can combine weak models that can additionaly use different learning algorithms as well. These learners are called heterogeneous learners (boosting and bagging are homogeneous learners). Stacking works by training multiple and different weak models or learners and then using them together by training another model, called a meta-model, to make predictions.</li>
+</ol></li>
+</ul>
+<p>Three commonly used methods for finding the sweet spot between simple and complicated models are: regularization, boosting and bagging.</p>
+<ul>
+<li><strong>Gradient descent,</strong> in ML, is an iterative method that minimizes the cost function parametrized by model parameters. This improves the learning model’s efficacy by providing feedback to the model so that it can adjust the parameters to minimize the error and find the local or global minimum. Gradient measures the change in parameter with respect to the change in error. <strong>Learning rate</strong> or step size is the size of the steps that are taken to reach the minimum. This is typically a small value, and it is evaluated and updated based on the behavior of the cost function. High learning rates result in larger steps but risks overshooting the minimum. There are 3 types of gradient descent method:
+<ul>
+<li><strong>batch gradient descent:</strong> computation is carried out on the entire dataset</li>
+<li><strong>stochastic gradient descent:</strong> computation is carried over only one training sample</li>
+<li><strong>mini batch gradient descent:</strong> a small number/batch of training samples is used for computation</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="deep-learning" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="deep-learning"><span class="header-section-number">2.4</span> Deep learning</h2>
+<p>Deep learning is an advanced version of neural networks (NNs with more than three layers) to make the machines learn from data.</p>
+<ul>
+<li><strong>RNN</strong> (reccurent neural network) is an algorithm that uses sequential data (i.e.&nbsp;data that are ordered into sequences) such as timeseries, stock market, temperature, etc.</li>
+<li><strong>NLP</strong> (natural language processing) deals with the study of how computers learn a massive amount of textual data through programming</li>
+<li><strong>Batch normalization</strong> is a technique for training very deep neural networks that standardize the inputs to a layer for each mini-batch. This has the effect of stabilizing the learning process and dramatically reducing the number of training epochs required to train deep networks. After this, model is less sensitive to hyperparameter tuning, high learning rates become acceptable (which results in faster training of the model), weight initialization becomes an easy task,..</li>
+<li>A perceptron** is the simplest NN that contains a single neuron that performs 2 functions. The first function is to perform the weighted sum of all the inputs and the second is an activation function</li>
+<li><strong>Autoencoders</strong> are learning networks which transform inputs into outputs with minimum possible errors. Can be used in anomaly detection.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./section1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">First Part: Python</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link">
+        <span class="nav-page-text">Summary</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
