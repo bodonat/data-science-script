@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Script for data science - Introduction</title>
+<title>Script for data science - 6&nbsp; Intro</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,60 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -83,8 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./python_intro.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./statistics.html" rel="next">
+<link href="./python_modules.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,6 +61,8 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -126,7 +75,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Introduction</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_intro.html">Second part: Data Science</a></li><li class="breadcrumb-item"><a href="./ds_intro.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,7 +108,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -215,7 +164,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ds_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./ds_intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro</span></span></a>
   </div>
 </li>
@@ -264,7 +213,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Introduction</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro</span></h1>
 </div>
 
 
@@ -279,17 +228,117 @@ div.csl-indent {
 
 </header>
 
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
-
-
-<!-- -->
-
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+<p>Data science combines statistics, maths, specialised programs, AI, ML, etc.. Application of specific principles and analytic techniques to extract information from data used in strategic planning, decision making, etc.</p>
+<div class="cell" data-file="ds_flow.txt" data-fig-height="2.5" data-fig-width="8">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="768" height="240" viewbox="0.00 0.00 899.00 263.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 259)">
+<title>
+ds_cycle
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-259 895,-259 895,4 -4,4"></polygon> <!-- A --> <g id="node1" class="node">
+<title>
+A
+</title>
+<polygon fill="#ffcce5" stroke="transparent" points="182,-255 0,-255 0,-194 182,-194 182,-255"></polygon> <polygon fill="none" stroke="black" points="0,-232.5 0,-254.5 182,-254.5 182,-232.5 0,-232.5"></polygon> <text text-anchor="start" x="2.71" y="-239.9" font-family="Arial" font-weight="bold" font-size="14.00">Business Understanding &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="0,-193.5 0,-232.5 182,-232.5 182,-193.5 0,-193.5"></polygon> <text text-anchor="start" x="29.91" y="-216.9" font-family="Arial" font-size="14.00">Define the problem </text> <text text-anchor="start" x="51.31" y="-200.1" font-family="Arial" font-size="14.00"> to be solved</text> </g> <!-- B --> <g id="node2" class="node">
+<title>
+B
+</title>
+<polygon fill="#ffccff" stroke="transparent" points="328,-255 200,-255 200,-194 328,-194 328,-255"></polygon> <polygon fill="none" stroke="black" points="200,-232.5 200,-254.5 328,-254.5 328,-232.5 200,-232.5"></polygon> <text text-anchor="start" x="218.5" y="-239.9" font-family="Arial" font-weight="bold" font-size="14.00">Data Mining &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="200,-193.5 200,-232.5 328,-232.5 328,-193.5 200,-193.5"></polygon> <text text-anchor="start" x="211.48" y="-216.9" font-family="Arial" font-size="14.00">Gather or scrape</text> <text text-anchor="start" x="202.91" y="-200.1" font-family="Arial" font-size="14.00"> the necessary data</text> </g> <!-- A&#45;&gt;B --> <g id="edge1" class="edge">
+<title>
+A-&gt;B
+</title>
+<path fill="none" stroke="black" d="M182.23,-224.5C184.7,-224.5 187.17,-224.5 189.64,-224.5"></path> <polygon fill="black" stroke="black" points="189.8,-228 199.8,-224.5 189.8,-221 189.8,-228"></polygon> </g> <!-- C --> <g id="node3" class="node">
+<title>
+C
+</title>
+<polygon fill="#e5ccff" stroke="transparent" points="492,-255 346,-255 346,-194 492,-194 492,-255"></polygon> <polygon fill="none" stroke="black" points="346,-232.5 346,-254.5 492,-254.5 492,-232.5 346,-232.5"></polygon> <text text-anchor="start" x="366.49" y="-239.9" font-family="Arial" font-weight="bold" font-size="14.00">Data Cleaning &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="346,-193.5 346,-232.5 492,-232.5 492,-193.5 346,-193.5"></polygon> <text text-anchor="start" x="348.97" y="-216.9" font-family="Arial" font-size="14.00">Handle missing values</text> <text text-anchor="start" x="380.87" y="-200.1" font-family="Arial" font-size="14.00"> and outliers</text> </g> <!-- B&#45;&gt;C --> <g id="edge2" class="edge">
+<title>
+B-&gt;C
+</title>
+<path fill="none" stroke="black" d="M328.18,-224.5C330.67,-224.5 333.17,-224.5 335.66,-224.5"></path> <polygon fill="black" stroke="black" points="335.92,-228 345.92,-224.5 335.92,-221 335.92,-228"></polygon> </g> <!-- D --> <g id="node4" class="node">
+<title>
+D
+</title>
+<polygon fill="#ccccff" stroke="transparent" points="491.5,-158 346.5,-158 346.5,-114 491.5,-114 491.5,-158"></polygon> <polygon fill="none" stroke="black" points="347,-136 347,-158 492,-158 492,-136 347,-136"></polygon> <text text-anchor="start" x="358.04" y="-143.4" font-family="Arial" font-weight="bold" font-size="14.00">Data Exploration &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="347,-114 347,-136 492,-136 492,-114 347,-114"></polygon> <text text-anchor="start" x="349.85" y="-120.4" font-family="Arial" font-size="14.00">Visual analysis of data</text> </g> <!-- C&#45;&gt;D --> <g id="edge3" class="edge">
+<title>
+C-&gt;D
+</title>
+<path fill="none" stroke="black" d="M419,-193.73C419,-185.48 419,-176.51 419,-168.19"></path> <polygon fill="black" stroke="black" points="422.5,-168.09 419,-158.09 415.5,-168.09 422.5,-168.09"></polygon> </g> <!-- E --> <g id="node5" class="node">
+<title>
+E
+</title>
+<polygon fill="#cce5ff" stroke="transparent" points="494.5,-69.5 343.5,-69.5 343.5,-8.5 494.5,-8.5 494.5,-69.5"></polygon> <polygon fill="none" stroke="black" points="344,-47 344,-69 495,-69 495,-47 344,-47"></polygon> <text text-anchor="start" x="346.76" y="-54.4" font-family="Arial" font-weight="bold" font-size="14.00">Feature engineering &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="344,-8 344,-47 495,-47 495,-8 344,-8"></polygon> <text text-anchor="start" x="354.52" y="-31.4" font-family="Arial" font-size="14.00">Create new features </text> <text text-anchor="start" x="368.92" y="-14.6" font-family="Arial" font-size="14.00">from the dataset</text> </g> <!-- D&#45;&gt;E --> <g id="edge4" class="edge">
+<title>
+D-&gt;E
+</title>
+<path fill="none" stroke="black" d="M419,-113.92C419,-103.85 419,-91.47 419,-79.74"></path> <polygon fill="black" stroke="black" points="422.5,-79.67 419,-69.67 415.5,-79.67 422.5,-79.67"></polygon> </g> <!-- F --> <g id="node6" class="node">
+<title>
+F
+</title>
+<polygon fill="#ccffff" stroke="transparent" points="703,-78 513,-78 513,0 703,0 703,-78"></polygon> <polygon fill="none" stroke="black" points="513,-56 513,-78 703,-78 703,-56 513,-56"></polygon> <text text-anchor="start" x="535.65" y="-63.4" font-family="Arial" font-weight="bold" font-size="14.00">Predictive modeling &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="513,0 513,-56 703,-56 703,0 513,0"></polygon> <text text-anchor="start" x="553.93" y="-40.4" font-family="Arial" font-size="14.00">Train ML models,</text> <text text-anchor="start" x="515.79" y="-23.6" font-family="Arial" font-size="14.00"> evaluate and make &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> <text text-anchor="start" x="572.2" y="-6.8" font-family="Arial" font-size="14.00"> predictions</text> </g> <!-- E&#45;&gt;F --> <g id="edge5" class="edge">
+<title>
+E-&gt;F
+</title>
+<path fill="none" stroke="black" d="M494.67,-39C497.32,-39 499.97,-39 502.61,-39"></path> <polygon fill="black" stroke="black" points="502.82,-42.5 512.82,-39 502.82,-35.5 502.82,-42.5"></polygon> </g> <!-- G --> <g id="node7" class="node">
+<title>
+G
+</title>
+<polygon fill="#ccffe5" stroke="transparent" points="891,-78 721,-78 721,0 891,0 891,-78"></polygon> <polygon fill="none" stroke="black" points="721,-56 721,-78 891,-78 891,-56 721,-56"></polygon> <text text-anchor="start" x="740.26" y="-63.4" font-family="Arial" font-weight="bold" font-size="14.00">Data Visualization &nbsp;&nbsp;</text> <polygon fill="none" stroke="black" points="721,0 721,-56 891,-56 891,0 721,0"></polygon> <text text-anchor="start" x="735.96" y="-40.4" font-family="Arial" font-size="14.00">Represent the findings</text> <text text-anchor="start" x="723.9" y="-23.6" font-family="Arial" font-size="14.00"> using plots and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> <text text-anchor="start" x="730.52" y="-6.8" font-family="Arial" font-size="14.00">interactive visualizations</text> </g> <!-- F&#45;&gt;G --> <g id="edge6" class="edge">
+<title>
+F-&gt;G
+</title>
+<path fill="none" stroke="black" d="M703.13,-39C705.62,-39 708.11,-39 710.59,-39"></path> <polygon fill="black" stroke="black" points="710.81,-42.5 720.81,-39 710.81,-35.5 710.81,-42.5"></polygon> </g> </g>
+</svg>
 </div>
 </div>
+</div>
+</div>
+<p><br>
+</p>
+<ul>
+<li><p><strong>Handling missing values:</strong> If the dataset is large, we can just remove rows with missing data. For smaller datasets, we can substitute it with the mean or average, using df.mean(), or df.fillna(mean),..</p></li>
+<li><p><strong>Handling outliers:</strong> if the data has garbage value or has extreme values you can drop it. Otherwise, you can maybe try different models, normalize data or use algorithms that are less affected by it</p></li>
+<li><p>Difference between <strong>error terms and residuals:</strong> an error term is generally unobservable and a residual is observable and calculable, making it much easier to quantify and visualize. In effect, while an error term represents the way observed data differs from the actual population, a residual represents the way it differs from sample population data. Residuals actually helps us get an accurate estimate of the error.</p></li>
+<li><p><strong>RMSE</strong> is used to measure the deviation of the residuals, and MSE is used to find how close is the line to the actual data. Other metrics: MAE (mean absolute error), MAPE (mean absolute percentage error). <em>from sklearn.metrics import …….</em></p></li>
+<li><p><strong>Cost vs loss function:</strong> loss function refers to the error of one training example, while a cost function calculates the average error across an entire training set</p></li>
+<li><p><strong>Confusion matrix</strong> is used to describe the performance of the classification model.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Actual Positive</th>
+<th style="text-align: center;">Actual Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Predicted Positive</strong></td>
+<td style="text-align: center;">True Positive</td>
+<td style="text-align: center;">False Positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Predicted Negative</strong></td>
+<td style="text-align: center;">False Negative</td>
+<td style="text-align: center;">True Negative</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>accuracy:</strong> (true positive + true negative) / total observations.. RMSE is a measure of accuracy in regression</li>
+<li><strong>error rate:</strong> (false positive + false negative) / total observations</li>
+<li><strong>precision:</strong> true positive / (true positive + false positive)</li>
+<li><strong>specificity:</strong> true negative / (true negative + false positive)</li>
+<li><strong>sensitivity/recall:</strong> true positive / (true positive + false negative).. helps to identify the misclassified positive predicitions</li>
+</ul>
+<p>Accuracy metric can be reliable metric only if the dataset is class-balanced. F1 score is a ML evaluation metric that assesses the predictive skill of a model by elaborating on its class-wise performance rather than an overall performance as done by accuracy. If accuracy is 100%, then F1 = 1.</p>
+<p><span class="math display">\[ F1 = 2 * \text{precision} * \text{recall} / (\text{precision + recall}) \]</span></p>
+<p><strong>Cut off/threshold</strong> is the probability that the prediction is true. It represents the tradeoff between false positives and false negatives. Normally, the cut-off will be on 0.5 (random) but you can increase it. All predicted outcome with a probability above it will be classified in the first class and the other in the second class.</p></li>
+</ul>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -578,22 +627,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./python_modules.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modules</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./python_intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./statistics.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Statistics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction {.unnumbered}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>This is a book created from markdown and executable code.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>See @knuth84 for additional discussion of literate programming.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 

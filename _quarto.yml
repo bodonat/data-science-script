@@ -8,10 +8,21 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - part: "Chapters"
+    - part: "First part: Python"
       chapters:
-          - section1.ipynb
-          - section2.ipynb
+          - python_intro.ipynb
+          - handling_exceptions.ipynb
+          - oop.ipynb
+          - useful_functions.ipynb
+          - python_modules.ipynb
+          
+    - part: "Second part: Data Science"
+      chapters:
+          - ds_intro.ipynb
+          - statistics.ipynb
+          - machine_learning.ipynb
+          - deep_learning.ipynb
+        
     - summary.qmd
     - references.qmd
 
@@ -20,6 +31,10 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    toc: true
+    toc-title: On this page
+    code-fold: true
+    code-tools: true
   docx: default
 
 
