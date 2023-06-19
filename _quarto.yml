@@ -5,9 +5,11 @@ project:
 book:
   title: "Script for data science"
   author: "donata boric"
+  downloads: [docx]
+  repo-url: https://github.com/bodonat/data-science-script
+  repo-actions: [edit, issue]
   chapters:
     - index.qmd
-    - intro.qmd
     - part: "First part: Python"
       chapters:
           - python_intro.ipynb
@@ -20,6 +22,7 @@ book:
       chapters:
           - ds_intro.ipynb
           - statistics.ipynb
+          - tsa.ipynb
           - machine_learning.ipynb
           - deep_learning.ipynb
         

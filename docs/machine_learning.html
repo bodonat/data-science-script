@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Script for data science - 8&nbsp; Machine learning</title>
+<title>Script for data science - 9&nbsp; Machine learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./deep_learning.html" rel="next">
-<link href="./statistics.html" rel="prev">
+<link href="./tsa.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_intro.html">Second part: Data Science</a></li><li class="breadcrumb-item"><a href="./machine_learning.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Machine learning</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_intro.html">Second part: Data Science</a></li><li class="breadcrumb-item"><a href="./machine_learning.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Machine learning</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -91,6 +91,10 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Script for data science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/bodonat/data-science-script" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Script-for-data-science.docx" title="Download Docx" class="quarto-navigation-tool px-1" aria-label="Download Docx"><i class="bi bi-file-word"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -103,12 +107,6 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -176,14 +174,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./tsa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Time series analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./machine_learning.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Machine learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Machine learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./deep_learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Deep learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Deep learning</span></span></a>
   </div>
 </li>
       </ul>
@@ -210,17 +214,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#regression-and-classification-algorithms" id="toc-regression-and-classification-algorithms" class="nav-link active" data-scroll-target="#regression-and-classification-algorithms"><span class="header-section-number">8.1</span> Regression and classification algorithms</a></li>
-  <li><a href="#tuning-model-parameters-evaluation" id="toc-tuning-model-parameters-evaluation" class="nav-link" data-scroll-target="#tuning-model-parameters-evaluation"><span class="header-section-number">8.2</span> Tuning model parameters, evaluation</a></li>
+  <li><a href="#regression-and-classification-algorithms" id="toc-regression-and-classification-algorithms" class="nav-link active" data-scroll-target="#regression-and-classification-algorithms"><span class="header-section-number">9.1</span> Regression and classification algorithms</a></li>
+  <li><a href="#tuning-model-parameters-evaluation" id="toc-tuning-model-parameters-evaluation" class="nav-link" data-scroll-target="#tuning-model-parameters-evaluation"><span class="header-section-number">9.2</span> Tuning model parameters, evaluation</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bodonat/data-science-script/blob/main/machine_learning.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bodonat/data-science-script/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Machine learning</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Machine learning</span></h1>
 </div>
 
 
@@ -265,8 +269,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><strong>Test set vs validation set:</strong> test set is used to evaluate the performance of the trained model, and the validation set is part of the training set that is used to select parameters for avoiding model overfitting. (80% training, 10% validation, 10% test)</li>
 </ul>
-<section id="regression-and-classification-algorithms" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="regression-and-classification-algorithms"><span class="header-section-number">8.1</span> Regression and classification algorithms</h2>
+<section id="regression-and-classification-algorithms" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="regression-and-classification-algorithms"><span class="header-section-number">9.1</span> Regression and classification algorithms</h2>
 <ul>
 <li><p><strong>Regression:</strong> linear (when variables are continuous and numeric) and logistic (when variables are continuous and categorical)</p>
 <ul>
@@ -308,8 +312,8 @@ ul.task-list li input[type="checkbox"] {
 </ol></li>
 </ul>
 </section>
-<section id="tuning-model-parameters-evaluation" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="tuning-model-parameters-evaluation"><span class="header-section-number">8.2</span> Tuning model parameters, evaluation</h2>
+<section id="tuning-model-parameters-evaluation" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="tuning-model-parameters-evaluation"><span class="header-section-number">9.2</span> Tuning model parameters, evaluation</h2>
 <p><strong>Overfitting</strong> referes to a model that is only set for a very small amount of data and ignores the bigger picture.</p>
 <p>There are three main methods to avoid it:<br>
 &nbsp;&nbsp;- feature selection<br>
@@ -697,13 +701,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./statistics.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Statistics</span></span>
+      <a href="./tsa.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Time series analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./deep_learning.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Deep learning</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Deep learning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

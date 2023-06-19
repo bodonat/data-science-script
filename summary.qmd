@@ -1,3 +1,7 @@
 # Summary {.unnumbered}
 
-In summary, this book has no content whatsoever.
+Altough we have covered a range of topics, it is worth noting that Data Science goes a lot beyond. It is a filed that is continually evolving and requires constant learning. Because of that further expansion of this guide is desirable and hopefully achievable.
+
+I hope this script served as a starting point for you, and that it can always come in handy.
+
+Bye :)

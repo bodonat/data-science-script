@@ -123,6 +123,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Script for data science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/bodonat/data-science-script" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Script-for-data-science.docx" title="Download Docx" class="quarto-navigation-tool px-1" aria-label="Download Docx"><i class="bi bi-file-word"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -135,12 +139,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -238,7 +236,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#working-with-files" id="toc-working-with-files" class="nav-link active" data-scroll-target="#working-with-files"><span class="header-section-number">4.1</span> Working with files</a></li>
+  <li><a href="#working-with-dataframes" id="toc-working-with-dataframes" class="nav-link" data-scroll-target="#working-with-dataframes"><span class="header-section-number">4.2</span> Working with dataframes</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bodonat/data-science-script/blob/main/useful_functions.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bodonat/data-science-script/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -373,13 +378,16 @@ Tip
 <li>np.hstack(): stack arrays in sequence horizontally</li>
 <li>np.vstack(): stack arrays in sequence vertically</li>
 </ul>
-<p>Working with files:</p>
+<section id="working-with-files" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="working-with-files"><span class="header-section-number">4.1</span> Working with files</h2>
 <ul>
 <li>“with open(„some.txt“) as f” takes care of closing the file</li>
 <li>.write(), .read(), .close(), .readlines()</li>
 <li>For faster loading it is commonly to use numpy package: np.savetxt(‘some.txt’, np.array(), fmt=‘%.2f’, header=‘..’), np.loadtxt(‘some.txt’)</li>
 </ul>
-<p>Working with dataframes:</p>
+</section>
+<section id="working-with-dataframes" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="working-with-dataframes"><span class="header-section-number">4.2</span> Working with dataframes</h2>
 <ul>
 <li>Combining dataframes in pandas: append() (for horizontal stacking) and concat() (for vertical stacking)</li>
 <li>Identifying missing values: isnull() and isna()</li>
@@ -394,6 +402,7 @@ Tip
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

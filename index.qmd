@@ -1,5 +1,10 @@
-# Preface {.unnumbered}
+# Introduction {.unnumbered}
 
-This is a Quarto book.
+Welcome to this thorough guide to Data Science. Here you can find a step-by-step introduction to the world of Data Science and a lot more!
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+The primary goal is to cover basic principles in a detailed manner for better understanding. Also, it can come in handy to remind yourself of some forgotten concepts.
+
+First part covers Python programming and its fundamental basics, along with useful modules and functions. Second part is first concetrated on the background of Data Science, then follows some popular methods and algorithms.
+
+
+Have fun! :)

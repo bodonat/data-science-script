@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./machine_learning.html" rel="next">
+<link href="./tsa.html" rel="next">
 <link href="./ds_intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -91,6 +91,10 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Script for data science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/bodonat/data-science-script" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Script-for-data-science.docx" title="Download Docx" class="quarto-navigation-tool px-1" aria-label="Download Docx"><i class="bi bi-file-word"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -103,12 +107,6 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -176,14 +174,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./tsa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Time series analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./machine_learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Machine learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Machine learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./deep_learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Deep learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Deep learning</span></span></a>
   </div>
 </li>
       </ul>
@@ -206,13 +210,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#time-series-analysis" id="toc-time-series-analysis" class="nav-link active" data-scroll-target="#time-series-analysis"><span class="header-section-number">7.1</span> Time series analysis</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -345,81 +343,8 @@ R^{2} &amp;= 1 - \frac{\text{Residual variance}}{\text{Total variance}} \\
 <li><p><strong>Histograms vs density plots:</strong> an advantage that density plots have over histograms is that they’re better at determining the distribution shape because they are not affected by the number of bins used.</p></li>
 <li><p><strong>Akaike information Criterion (AIC):</strong> is a mathematical method for evaluating how well a model fits the data it was generated from. In statistics, it is used to compare different possible models (model selection). Lower AIC scores are better!</p></li>
 </ul>
-<section id="time-series-analysis" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="time-series-analysis"><span class="header-section-number">7.1</span> Time series analysis</h2>
-<p>Time series analysis (TSA) is a mathematical approach for predicting or forecasting the future pattern of data using historical data arranged in a successive order for a particular time period. <em>statsmodels.tsa</em> package contains model classes and functions that are useful for time series analysis.</p>
-<ul>
-<li><p><strong>Prediction vs forecasting:</strong> prediction is concerned with estimating the outcomes of unseen data. Forecasting is a sub-discipline of prediction in which we are making predictions about the future on the basis of time series data, so the only difference is that we consider the temporal dimension</p></li>
-<li><p><strong>Trend vs season vs cyclic:</strong> A trend exists when there is a long-term increase or decrease in the data. It does not have to be linear. A seasonal pattern occurs when a time series is affected by seasonal factors such as the time of the year or the day of the week. Seasonality is always of a fixed and known frequency. A cycle occurs when the data exhibit rises and falls that are not of a fixed frequency.</p></li>
-<li><p><strong>Rolling average/ moving average</strong> is a metric that calculates trends over short periods of time using a set of data. Is uses smaller parts of the data and then rolls or moves for each new period. Calculating next rolling period involves leaving off your earliest unit and adding in your next unit. For egz., if you want to track down monthly data, take 12-months rolling period. After calculating average of 12 months, leave first month and add new month, then calculate average again for new rolling period. In that way, rolling period keeps moving.</p></li>
-<li><p><strong>Augmented Dickey-Fuller test:</strong> tests the null hypothesis that a unit root is present in a time series sample. It is a negative number, and the more negative it is, the stronger the rejection of the hypothesis that there is a unit root at some level of confidence.</p>
-<p>There are 3 main versions of the test (Dickey-Fuller test is presented for simplicity):</p>
-<ol type="1">
-<li>Test for a unit root: <span class="math inline">\(\Delta y_{t} = \delta y_{t-1} + u_{t} \quad(u_{t} \text{ is error term})\)</span></li>
-<li>Test for a unit root with constant: <span class="math inline">\(\Delta y_{t} = a_{0} + \delta y_{t-1} + u_{t}\)</span></li>
-<li>Test for a unit root with constant and deterministic time trend: <span class="math inline">\(\Delta y_{t} = a_{0} + a_{1}t + \delta y_{t-1} + u_{t}\)</span></li>
-</ol>
-<p>-&gt; Hypothesis: H0: δ = 0 (process is not stationary) H1: δ &lt; 0 (process is stationary)</p>
-<p>-&gt; from statsmodels.tsa.stattools import adfuller. For additional parameters, it is the best practice to put autolag=‘AIC’. regression parameter has 4 parameters: ‘c’ for only constant (default), ‘ct’ for constant and trend, ‘ctt’ for constant and linear and quadratic trend, ‘n’ for no constant and no trend.</p>
-<p>-&gt; Which version of test to choose? δ needs to be &lt;= 0, so one way to find out is to see if it fits in the right interval. Other way is to compare AIC values and choose lowest. Also by inspecting data we can assume which to choose, but the best way is to perform all 3 types and inspect results.</p></li>
-<li><p><strong>Stationary time series:</strong> the only assumption in TSA is that the data is <em>stationary</em>. Data is stationary when the variance and mean of the series are constant with time, with no periodic component (independent of time influence).</p>
-<ul>
-<li>Check it with Augmented Dickey-Fuller test</li>
-<li>Trend can result in a varying mean over time, wheras seasonality can result in a changing variance over time, both which define a time series as being non-stationary. (stationary datasets are much easier to model).</li>
-<li><strong>Differencing</strong> is a widely used data transform for making time series data stationary. Notice that some temporal structures may still exist after performing a differencing operation, such as in the case of a nonlinear trend. The number of times that differencing is performed is called the difference order. DataFrame diff() function can be used.</li>
-</ul></li>
-<li><p>There are two popular types of non-stationary time series:</p>
-<ol type="a">
-<li><strong>Trend-stationarity time series</strong> are those whose mean trend is deterministic. In other words, the mean of the time series changes over time but at a constant rate. The time series is not stationary in the strict sense, but it is stationary in the sense that the trend is stable and predictable</li>
-<li><strong>Difference-stationarity time series</strong> have a mean trend that is stochastic. In other words, the mean of the time series changes over time in a random pattern.</li>
-</ol></li>
-<li><p><strong>Log transform:</strong> time series with an exponential distribution can be made linear by taking the logarithm of the values. Log transforms are popular with time series data as they are effective at removing exponential variance</p></li>
-<li><p><strong>Autocorrelation analysis</strong> is used in detecting patterns and checking for randomness. The analysis involves looking at the Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots.</p>
-<ul>
-<li>Autocorrelation is a mathematical representation of the degree of similarity between a given time series and a lagged version of itself over successive time intervals. ACF function measures and plots the average correlation between data points in time series and previous values of the series measured for different lag lenghts.</li>
-<li>Partial autocorrelation is similar to autocorrelation except that each partial correlation controls for any correlation between observations of a shorter lag length. For egz., at second lag, the PACF measures the correlation between data points at time „t“ with data points at time „t-2“, while the ACF measures the same correlation but after controlling for the correlation between data points at time „t“ with those at time „t-1“.</li>
-<li><em>from statsmodels.graphics.tsaplots import plot_acf, plot_pacf</em></li>
-<li>Stationarity of time series can be inspected with ACF plot (along with ADF test). In case the autocorrelations are positive for multiple lags, the series requires further differencing; but if lag 1 autocorrelated itself pretty negatively, then the series is possibly over-differenced</li>
-</ul></li>
-</ul>
-<p><strong>MODELS</strong></p>
-<ul>
-<li><p><strong>AutoRegressive model (AR):</strong> it is a linear model where current period values are a sum of past outcomes multiplied by a numeric factor. We denote it as AR(p), where „p“ is called the order of the model and represents the number of lagged values we want to include. p can be determined from PACF plot. For p=1: <span class="math display">\[ X_{t} = C + \phi_{1}X_{t-1} + \varepsilon_{t}, \]</span> The coefficient <span class="math inline">\(\phi_{1}\)</span> is a numeric constant with value between -1 and 1. When multiplied with past value it represents a part which remains in the future. You would choose an AR model if you believe that previous observations have a direct effect on the time series.</p></li>
-<li><p><strong>Moving Average (MA):</strong> it’s a statistic that captures the average change in data series over time. We denote it as MA(q), where „q“ is called the order of the model and represents the number of past forecast errors (or the size of the moving average window). q can be determined from ACF plot. You would choose an MA model if you believe that the errors have a direct effect on the time series.</p></li>
-<li><p><strong>AutoRegressive Moving Average (ARMA):</strong> p,q</p></li>
-<li><p><strong>AutoRegressive Integrated Moving Average (ARIMA):</strong> p,d,q.. where d is the difference order</p></li>
-<li><p><strong>AutoRegressive Moving Average with eXogeneous factors (ARMAX):</strong> exogeneous variables are external data used in forecast (external effects)</p></li>
-<li><p><strong>Seasonal AutoRegressive Integrated Moving Average (SARIMA):</strong> p,d,q,P,D,Q,m.. where m is the number of time steps for a single seasonal period, p,d,q are trend elements and P,D,Q are seasonal elements</p></li>
-<li><p><strong>Seasonal AutoRegressive Integrated Moving Average with eXogeneous factors (SARIMAX)</strong></p>
-<p>STEPS FOR BUILDING ONE OF THESE MODELS:</p>
-<ol type="1">
-<li><p>Check for stationarity of time series and perform differencing if needed. This is because the term „autoregressive“ implies Linear Regression model (using its lags as predictors) and it works well for independent and non-correlated predictors</p></li>
-<li><p>Determine parameters. It can be done with inspecting acf/pacf plots</p></li>
-<li><p>Fit the model. Inspect coefficients and P(&gt;|z|) with .summary() function and decide if it is needed for further tuning of parameters</p></li>
-<li><p>Check residuals for making sure model has captured adequte information from the data (they should look like white noise). If density looks normally distirbuted, model is ready.</p></li>
-<li><p>Make predictions (using .forecast() or .predict() function)</p></li>
-<li><p>Evaluate model predictions using common metrics (MAE, RMSE,..)</p>
-<ul>
-<li>Alternatively, use <em>pmdarima</em> package and <em>auto_arima</em> function to automate steps 1 to 3. Be aware that sometimes the manually fitted model is closer to the actual test set</li>
-<li>Alternatively, use plot_diagnostics to automate step 4. Values of good fit:
-<ol type="a">
-<li>Standardized residual: there are no obvious patterns in residuals, with values having a mean of zero</li>
-<li>The KDE curve should be very similar to the normal distribution</li>
-<li>Normal Q-Q: most of the data points should lie on the straight line</li>
-<li>Correlogram: 95% of correlations for lag greater than zero should not be significant</li>
-</ol></li>
-<li>Suggestion: conduct time series cross-validation to select the best model, i.e.&nbsp;repeat model assessment for different train / test sets</li>
-<li>Pro tip: if data shows exponential trend you can do a log transform before applying a model, then later apply inverse transformation (exponential function)</li>
-</ul></li>
-</ol></li>
-</ul>
-<p><strong><em>Useful tips/functions</em></strong></p>
-<ul>
-<li>Date increment used for a date range: <em>pandas.tseries.offsets.DateOffset</em></li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -713,8 +638,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./machine_learning.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Machine learning</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tsa.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Time series analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -722,4 +647,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/bodonat/data-science-script/blob/main/statistics.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/bodonat/data-science-script/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
