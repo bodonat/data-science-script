@@ -7,7 +7,7 @@ book:
   author: "donata boric"
   downloads: [docx]
   repo-url: https://github.com/bodonat/data-science-script
-  repo-actions: [edit, issue]
+  repo-actions: [issue]
   chapters:
     - index.qmd
     - part: "First part: Python"
@@ -27,7 +27,6 @@ book:
           - deep_learning.ipynb
         
     - summary.qmd
-    - references.qmd
 
 bibliography: references.bib
 
